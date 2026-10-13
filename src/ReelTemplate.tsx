@@ -25,7 +25,7 @@ export type ReelProps = {
 const YELLOW = "#F6FF00";
 const KEN_BURNS_SECONDS = 3;
 
-const baseScale = (t: number, fps: number, ZOOM_TOGGLES: ReelProps["toggles"]): number => {
+export const baseScale = (t: number, fps: number, ZOOM_TOGGLES: ReelProps["toggles"]): number => {
   let prev = ZOOM_TOGGLES[0].scale;
   for (let i = 0; i < ZOOM_TOGGLES.length; i++) {
     const { at, scale } = ZOOM_TOGGLES[i];
@@ -71,7 +71,7 @@ const Footage: React.FC<{ data: ReelData; src: string; focusX: string }> = ({ da
   );
 };
 
-const Captions: React.FC<{ data: ReelData }> = ({ data }) => {
+export const Captions: React.FC<{ data: ReelData }> = ({ data }) => {
   const { CAPTIONS } = data;
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();

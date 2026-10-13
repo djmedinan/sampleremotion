@@ -1,0 +1,6 @@
+{"keys": ["ganas", "intentarlo", "rindes", "cambian", "paso", "agradecer", "nada"],
+ "windows": [
+  {"from": 0, "to": 3, "text": "Hoy no tienes ganas. Está bien."},
+  {"from": 3, "to": 7, "text": "Pero las ganas no construyen nada. Lo que construye es volver a intentarlo cuando todo te dice que pares."},
+  {"from": 7, "to": 11, "text": "Nadie ve los días en que casi te rindes. Pero esos días son los que te cambian."},
+  {"from": 11, "to": 15, "text": "Un paso más. Solo uno. Mañana te vas a agradecer no haberte rendido."}]}
