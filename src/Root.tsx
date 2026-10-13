@@ -2,6 +2,7 @@ import { Composition, Folder } from "remotion";
 import { HelloWorld } from "./HelloWorld";
 import { Reel, REEL_DURATION, REEL_FPS } from "./Reel";
 import { Reel2, REEL2_DURATION, REEL2_FPS } from "./Reel2";
+import { Reel3, REEL3_DURATION, REEL3_FPS } from "./Reel3";
 import { Logo } from "./HelloWorld/Logo";
 import { Title } from "./HelloWorld/Title";
 
@@ -23,6 +24,14 @@ export const RemotionRoot: React.FC = () => {
         component={Reel2}
         durationInFrames={REEL2_DURATION}
         fps={REEL2_FPS}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="Reel3"
+        component={Reel3}
+        durationInFrames={REEL3_DURATION}
+        fps={REEL3_FPS}
         width={1080}
         height={1920}
       />
