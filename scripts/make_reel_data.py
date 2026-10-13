@@ -7,7 +7,8 @@ import json, sys, unicodedata
 
 words_path, out_path, dur = sys.argv[1], sys.argv[2], float(sys.argv[3])
 KEYS = set(k.strip() for k in (sys.argv[4] if len(sys.argv) > 4 else "").split(",") if k.strip())
-LEAD, TAIL, GAP = 0.03, 0.05, 0.09  # seconds kept before/after speech; gaps longer than GAP are cut
+LEAD, TAIL = 0.03, 0.05
+GAP = float(sys.argv[5]) if len(sys.argv) > 5 else 0.09  # seconds; gaps longer than GAP are cut (pass 99 to keep all pauses)
 
 def norm(s):
     s = unicodedata.normalize("NFD", s.lower())
