@@ -25,14 +25,14 @@ export type ReelProps = {
 const YELLOW = "#F6FF00";
 const KEN_BURNS_SECONDS = 3;
 
-export const baseScale = (t: number, fps: number, ZOOM_TOGGLES: ReelProps["toggles"]): number => {
+export const baseScale = (t: number, fps: number, ZOOM_TOGGLES: ReelProps["toggles"], easeFrames = 4): number => {
   let prev = ZOOM_TOGGLES[0].scale;
   for (let i = 0; i < ZOOM_TOGGLES.length; i++) {
     const { at, scale } = ZOOM_TOGGLES[i];
     if (t >= at) {
       const k = (t - at) * fps;
       const from = i === 0 ? 1.0 : prev;
-      return interpolate(k, [0, i === 0 ? 5 : 4], [from, scale], {
+      return interpolate(k, [0, i === 0 ? 5 : easeFrames], [from, scale], {
         extrapolateRight: "clamp",
         easing: Easing.out(Easing.cubic),
       });

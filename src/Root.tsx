@@ -8,6 +8,7 @@ import { Reel5, REEL5_DURATION, REEL5_FPS } from "./Reel5";
 import { Reel6, REEL6_DURATION, REEL6_FPS } from "./Reel6";
 import { Reel7, REEL7_DURATION, REEL7_FPS } from "./Reel7";
 import { Reel8, REEL8_DURATION, REEL8_FPS } from "./Reel8";
+import { Reel9, REEL9_DURATION, REEL9_FPS } from "./Reel9";
 import { Logo } from "./HelloWorld/Logo";
 import { Title } from "./HelloWorld/Title";
 
@@ -77,6 +78,14 @@ export const RemotionRoot: React.FC = () => {
         component={Reel8}
         durationInFrames={REEL8_DURATION}
         fps={REEL8_FPS}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="Reel9"
+        component={Reel9}
+        durationInFrames={REEL9_DURATION}
+        fps={REEL9_FPS}
         width={1080}
         height={1920}
       />
