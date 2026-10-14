@@ -6,7 +6,7 @@ words.json: [{"t": " Hola", "s": 0.0, "e": 0.3}, ...]
 import json, sys, unicodedata
 
 words_path, out_path, dur = sys.argv[1], sys.argv[2], float(sys.argv[3])
-KEYS = set(k.strip() for k in (sys.argv[4] if len(sys.argv) > 4 else "").split(",") if k.strip())
+_raw = [k.strip() for k in (sys.argv[4] if len(sys.argv) > 4 else "").split(",") if k.strip()]
 LEAD, TAIL = 0.03, 0.05
 GAP = float(sys.argv[5]) if len(sys.argv) > 5 else 0.09  # seconds; gaps longer than GAP are cut (pass 99 to keep all pauses)
 
@@ -14,6 +14,7 @@ def norm(s):
     s = unicodedata.normalize("NFD", s.lower())
     return "".join(c for c in s if c.isalpha() and not unicodedata.combining(c))
 
+KEYS = set(norm(k) for k in _raw)  # accents-insensitive match
 W = json.load(open(words_path))
 segs, cur = [], None
 for w in W:
