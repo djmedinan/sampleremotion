@@ -1,4 +1,4 @@
-import { AbsoluteFill, Audio, OffthreadVideo, Sequence, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, Audio, interpolate, OffthreadVideo, Sequence, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { baseScale, Captions, ReelData } from "./ReelTemplate";
 
 export type Clip = { id: string; from: number; to: number }; // public/clips/<id>.mp4, seconds on the timeline
@@ -7,9 +7,17 @@ export type VoicedReelProps = {
   audio: string; // file in public/
   clips: Clip[];
   toggles: { at: number; scale: number }[];
+  clipsDir?: string; // folder inside public/, default "clips"
+  fade?: number; // seconds of soft cross-dissolve into each clip (0 = hard cuts)
 };
 
-export const VoicedReel: React.FC<VoicedReelProps> = ({ data, audio, clips, toggles }) => {
+const FadeIn: React.FC<{ frames: number; children: React.ReactNode }> = ({ frames, children }) => {
+  const f = useCurrentFrame();
+  const opacity = frames > 0 ? interpolate(f, [0, frames], [0, 1], { extrapolateRight: "clamp" }) : 1;
+  return <AbsoluteFill style={{ opacity }}>{children}</AbsoluteFill>;
+};
+
+export const VoicedReel: React.FC<VoicedReelProps> = ({ data, audio, clips, toggles, clipsDir = "clips", fade = 0 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const scale = baseScale(frame / fps, fps, toggles);
@@ -17,9 +25,12 @@ export const VoicedReel: React.FC<VoicedReelProps> = ({ data, audio, clips, togg
     <AbsoluteFill style={{ backgroundColor: "#000" }}>
       <Audio src={staticFile(audio)} />
       <AbsoluteFill style={{ transform: `scale(${scale})`, transformOrigin: "50% 40%" }}>
-        {clips.map((c) => (
-          <Sequence key={c.id} from={Math.round(c.from * fps)} durationInFrames={Math.round((c.to - c.from) * fps)} layout="none">
-            <OffthreadVideo src={staticFile(`clips/${c.id}.mp4`)} muted style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+        {clips.map((c, i) => (
+          // each clip dissolves in over the previous one, which keeps playing underneath for the fade
+          <Sequence key={c.id} from={Math.round(c.from * fps)} durationInFrames={Math.round((c.to - c.from + fade) * fps)} layout="none">
+            <FadeIn frames={i === 0 ? 0 : Math.round(fade * fps)}>
+              <OffthreadVideo src={staticFile(`${clipsDir}/${c.id}.mp4`)} muted style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            </FadeIn>
           </Sequence>
         ))}
       </AbsoluteFill>
