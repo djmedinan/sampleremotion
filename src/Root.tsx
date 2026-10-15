@@ -16,6 +16,8 @@ import { Reel13, REEL13_DURATION, REEL13_FPS } from "./Reel13";
 import { RaulReel, RAUL_DURATION, RAUL_FPS } from "./raul/RaulReel";
 import { Reel14, REEL14_DURATION, REEL14_FPS } from "./Reel14";
 import { Reel15, REEL15_DURATION, REEL15_FPS } from "./Reel15";
+import { MangoDiskReel } from "./mangodisk/MangoDiskReel";
+import { DURATION as MD_DURATION, FPS as MD_FPS, HEIGHT as MD_H, WIDTH as MD_W } from "./mangodisk/config";
 import { Logo } from "./HelloWorld/Logo";
 import { Title } from "./HelloWorld/Title";
 
@@ -24,6 +26,7 @@ import { Title } from "./HelloWorld/Title";
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      <Composition id="MangoDiskReel" component={MangoDiskReel} durationInFrames={MD_DURATION} fps={MD_FPS} width={MD_W} height={MD_H} />
       <Composition
         id="Reel"
         component={Reel}
