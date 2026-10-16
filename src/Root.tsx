@@ -21,6 +21,9 @@ import { FilePense, FILEPENSE_DURATION, FILEPENSE_FPS } from "./cine/FilePense";
 import { Reel18, REEL18_DURATION, REEL18_FPS } from "./Reel18";
 import { Reel19, REEL19_DURATION, REEL19_FPS } from "./Reel19";
 import { Reel20, REEL20_DURATION, REEL20_FPS } from "./Reel20";
+import { Reel21, REEL21_DURATION, REEL21_FPS } from "./Reel21";
+import { Reel22, REEL22_DURATION, REEL22_FPS } from "./Reel22";
+import { Reel23, REEL23_DURATION, REEL23_FPS } from "./Reel23";
 import { Logo } from "./HelloWorld/Logo";
 import { Title } from "./HelloWorld/Title";
 
@@ -194,6 +197,30 @@ export const RemotionRoot: React.FC = () => {
         component={Reel20}
         durationInFrames={REEL20_DURATION}
         fps={REEL20_FPS}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="Reel21"
+        component={Reel21}
+        durationInFrames={REEL21_DURATION}
+        fps={REEL21_FPS}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="Reel22"
+        component={Reel22}
+        durationInFrames={REEL22_DURATION}
+        fps={REEL22_FPS}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="Reel23"
+        component={Reel23}
+        durationInFrames={REEL23_DURATION}
+        fps={REEL23_FPS}
         width={1080}
         height={1920}
       />
