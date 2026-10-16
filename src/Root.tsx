@@ -17,6 +17,7 @@ import { RaulReel, RAUL_DURATION, RAUL_FPS } from "./raul/RaulReel";
 import { Reel14, REEL14_DURATION, REEL14_FPS } from "./Reel14";
 import { Reel15, REEL15_DURATION, REEL15_FPS } from "./Reel15";
 import { Reel16, REEL16_DURATION, REEL16_FPS } from "./Reel16";
+import { FilePense, FILEPENSE_DURATION, FILEPENSE_FPS } from "./cine/FilePense";
 import { Logo } from "./HelloWorld/Logo";
 import { Title } from "./HelloWorld/Title";
 
@@ -158,6 +159,14 @@ export const RemotionRoot: React.FC = () => {
         component={Reel16}
         durationInFrames={REEL16_DURATION}
         fps={REEL16_FPS}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="FilePense"
+        component={FilePense}
+        durationInFrames={FILEPENSE_DURATION}
+        fps={FILEPENSE_FPS}
         width={1080}
         height={1920}
       />
