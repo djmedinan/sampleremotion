@@ -9,7 +9,7 @@ i=0; : > "$DIR/list.txt"
 while [ $i -lt $N ]; do
   S=$(( i * SIZE )); E=$(( S + SIZE - 1 )); [ $E -ge $TOTAL ] && E=$(( TOTAL - 1 ))
   F="$DIR/part_$i.mp4"
-  if [ ! -s "$F.done" ]; then
+  if [ ! -e "$F.done" ]; then
     npx remotion render "$ID" "$F" --frames=$S-$E --muted --browser-executable=$B --chrome-mode=headless-shell --gl=swangle --crf=25 --concurrency=4 && touch "$F.done" || exit 1
   fi
   echo "file 'part_$i.mp4'" >> "$DIR/list.txt"
