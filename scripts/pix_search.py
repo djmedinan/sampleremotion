@@ -7,10 +7,11 @@ key = os.environ["PIXABAY_KEY"]
 Q = json.load(open(sys.argv[1])); out = sys.argv[2]; os.makedirs(out, exist_ok=True)
 def get(url):
     return urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"}), timeout=40).read()
+excl = set(json.load(open(sys.argv[3]))) if len(sys.argv) > 3 else set()
 res = {}
 for q in Q:
     base = "https://pixabay.com/api/" + ("videos/" if q["kind"] == "video" else "")
-    p = {"key": key, "q": q["q"], "per_page": 8, "safesearch": "true", "lang": "en"}
+    p = {"key": key, "q": q["q"], "per_page": 12, "safesearch": "true", "lang": "en"}
     if q["kind"] == "photo": p.update(image_type="photo", orientation="vertical", min_height=1280, editors_choice="true")
     try:
         d = json.loads(get(base + "?" + urllib.parse.urlencode(p)))
@@ -18,7 +19,7 @@ for q in Q:
             p.pop("editors_choice"); d = json.loads(get(base + "?" + urllib.parse.urlencode(p)))
     except Exception as e:
         print("ERR", q, e); continue
-    hits = d["hits"][:6]
+    hits = [h for h in d["hits"] if str(h["id"]) not in excl][:6]
     res[q["n"]] = []
     for h in hits:
         if q["kind"] == "photo": th = h["webformatURL"].replace("_640", "_340"); big = h["largeImageURL"]
