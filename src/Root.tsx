@@ -19,6 +19,7 @@ import { Reel15, REEL15_DURATION, REEL15_FPS } from "./Reel15";
 import { Reel16, REEL16_DURATION, REEL16_FPS } from "./Reel16";
 import { Reel24, REEL24_DURATION, REEL24_FPS } from "./Reel24";
 import { Reel25, REEL25_DURATION, REEL25_FPS } from "./Reel25";
+import { Reel26, REEL26_DURATION, REEL26_FPS } from "./Reel26";
 import { Repaso, REPASO_DURATION, REPASO_FPS } from "./cine/Repaso";
 import { Pensar, PENSAR_DURATION, PENSAR_FPS } from "./cine/Pensar";
 import { FilePense, FILEPENSE_DURATION, FILEPENSE_FPS } from "./cine/FilePense";
@@ -257,6 +258,14 @@ export const RemotionRoot: React.FC = () => {
         component={Reel25}
         durationInFrames={REEL25_DURATION}
         fps={REEL25_FPS}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="Reel26"
+        component={Reel26}
+        durationInFrames={REEL26_DURATION}
+        fps={REEL26_FPS}
         width={1080}
         height={1920}
       />
