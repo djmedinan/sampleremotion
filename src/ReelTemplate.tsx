@@ -45,13 +45,14 @@ export const baseScale = (t: number, fps: number, ZOOM_TOGGLES: ReelProps["toggl
 const Footage: React.FC<{ data: ReelData; src: string; focusX: string }> = ({ data, src, focusX }) => {
   const { SEGMENTS } = data;
   const { fps } = useVideoConfig();
-  let offset = 0;
+  // integer frame boundaries from cumulative time, so neighbouring segments never overlap by a frame
+  const bounds: number[] = [0];
+  SEGMENTS.forEach(([a, b]) => bounds.push(bounds[bounds.length - 1] + (b - a)));
   return (
     <>
-      {SEGMENTS.map(([start, end], i) => {
-        const from = Math.round(offset * fps);
-        const duration = Math.max(1, Math.round((end - start) * fps));
-        offset += end - start;
+      {SEGMENTS.map(([start], i) => {
+        const from = Math.round(bounds[i] * fps);
+        const duration = Math.max(1, Math.round(bounds[i + 1] * fps) - from);
         return (
           <Sequence key={i} from={from} durationInFrames={duration} layout="none">
             <OffthreadVideo
