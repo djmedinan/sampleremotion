@@ -24,6 +24,7 @@ import { Oracion, ORACION_DURATION, ORACION_FPS } from "./cine/Oracion";
 import { Oracion2, ORACION2_DURATION, ORACION2_FPS } from "./cine/Oracion2";
 import { Reel27, REEL27_DURATION, REEL27_FPS } from "./Reel27";
 import { Reel28, REEL28_DURATION, REEL28_FPS } from "./Reel28";
+import { Reel29, REEL29_DURATION, REEL29_FPS } from "./Reel29";
 import { Repaso, REPASO_DURATION, REPASO_FPS } from "./cine/Repaso";
 import { Pensar, PENSAR_DURATION, PENSAR_FPS } from "./cine/Pensar";
 import { FilePense, FILEPENSE_DURATION, FILEPENSE_FPS } from "./cine/FilePense";
@@ -302,6 +303,14 @@ export const RemotionRoot: React.FC = () => {
         component={Reel28}
         durationInFrames={REEL28_DURATION}
         fps={REEL28_FPS}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="Reel29"
+        component={Reel29}
+        durationInFrames={REEL29_DURATION}
+        fps={REEL29_FPS}
         width={1080}
         height={1920}
       />
