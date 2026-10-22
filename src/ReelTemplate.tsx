@@ -16,6 +16,7 @@ export type ReelData = {
   TOTAL_SECONDS: number;
 };
 export type ReelProps = {
+  arrow?: boolean; // closing call-to-action arrow (default on)
   src: string; // file in public/, pre-upscaled to 1920px tall by scripts/upscale.sh
   focusX: string; // objectPosition x that centres the speaker's face in the 1080px crop
   zoomOrigin: string; // transform-origin, on the face (upper third, clear of the app UI)
@@ -171,7 +172,7 @@ const CallToAction: React.FC = () => {
   );
 };
 
-export const ReelTemplate: React.FC<{ data: ReelData } & ReelProps> = ({ data, src, focusX, zoomOrigin, toggles }) => {
+export const ReelTemplate: React.FC<{ data: ReelData } & ReelProps> = ({ data, src, focusX, zoomOrigin, toggles, arrow = true }) => {
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
   const t = frame / fps;
@@ -188,7 +189,7 @@ export const ReelTemplate: React.FC<{ data: ReelData } & ReelProps> = ({ data, s
         <Footage data={data} src={src} focusX={focusX} />
       </AbsoluteFill>
       <Captions data={data} />
-      <CallToAction />
+      {arrow && <CallToAction />}
     </AbsoluteFill>
   );
 };
