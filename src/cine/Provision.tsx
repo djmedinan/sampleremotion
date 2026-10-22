@@ -2,8 +2,6 @@ import { AbsoluteFill, Audio, interpolate, Sequence, staticFile, useCurrentFrame
 import { AnimatedSubtitles } from "../raul/AnimatedSubtitles";
 import { CAPTIONS } from "./provision-caps";
 import { SHOTS, TOTAL_SECONDS } from "./provision-shots";
-import { DustParticles } from "./DustParticles";
-import { LightLayers } from "./LightLayers";
 import { Shot, ShotView } from "./PhotoShot";
 
 export const PROVISION_FPS = 30;
@@ -17,20 +15,9 @@ const FadeIn: React.FC<{ frames: number; children: React.ReactNode }> = ({ frame
   return <AbsoluteFill style={{ opacity: o }}>{children}</AbsoluteFill>;
 };
 
-// Dust visibility follows the scene (softer over faces and dark shots), eased across each cut.
-const dustAt = (t: number) => {
-  const times: number[] = [];
-  const vals: number[] = [];
-  shots.forEach((s) => { times.push(s.from + 0.35, s.to - 0.35); vals.push(s.dust, s.dust); });
-  return interpolate(t, times, vals, { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-};
-
-// Photo-led cinematic piece: animated stills (~75%) cut with short video shots, warm light, dust motes and word-by-word captions.
+// Photo-led cinematic piece: animated stills (~75%) cut with short video shots, natural light only (no particles) and word-by-word captions.
 export const Provision: React.FC = () => {
-  const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const t = frame / fps;
-  const cur = shots.find((s) => t >= s.from && t < s.to) ?? shots[shots.length - 1];
   return (
     <AbsoluteFill style={{ backgroundColor: "#000" }}>
       <Audio src={staticFile("voice/provision_mix.mp3")} />
@@ -45,8 +32,6 @@ export const Provision: React.FC = () => {
           </Sequence>
         );
       })}
-      <LightLayers rays={cur.rays} />
-      <DustParticles intensity={dustAt} />
       <AbsoluteFill style={{ background: "linear-gradient(to top, rgba(0,0,0,0.42), rgba(0,0,0,0) 42%)" }} />
       <AnimatedSubtitles groups={CAPTIONS as any} />
     </AbsoluteFill>
