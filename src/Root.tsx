@@ -32,6 +32,7 @@ import { Salmo, SALMO_DURATION, SALMO_FPS } from "./cine/Salmo";
 import { Reel33, REEL33_DURATION, REEL33_FPS } from "./Reel33";
 import { Provision, PROVISION_DURATION, PROVISION_FPS } from "./cine/Provision";
 import { Reel34, REEL34_DURATION, REEL34_FPS } from "./Reel34";
+import { Reel35, REEL35_DURATION, REEL35_FPS } from "./Reel35";
 import { Repaso, REPASO_DURATION, REPASO_FPS } from "./cine/Repaso";
 import { Pensar, PENSAR_DURATION, PENSAR_FPS } from "./cine/Pensar";
 import { FilePense, FILEPENSE_DURATION, FILEPENSE_FPS } from "./cine/FilePense";
@@ -374,6 +375,14 @@ export const RemotionRoot: React.FC = () => {
         component={Reel34}
         durationInFrames={REEL34_DURATION}
         fps={REEL34_FPS}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="Reel35"
+        component={Reel35}
+        durationInFrames={REEL35_DURATION}
+        fps={REEL35_FPS}
         width={1080}
         height={1920}
       />
