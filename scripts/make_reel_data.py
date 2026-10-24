@@ -3,7 +3,7 @@
 usage: make_reel_data.py words.json out.ts duration_seconds [keywords,comma,separated]
 words.json: [{"t": " Hola", "s": 0.0, "e": 0.3}, ...]
 """
-import json, sys, unicodedata
+import json, os, sys, unicodedata
 
 words_path, out_path, dur = sys.argv[1], sys.argv[2], float(sys.argv[3])
 _raw = [k.strip() for k in (sys.argv[4] if len(sys.argv) > 4 else "").split(",") if k.strip()]
@@ -47,10 +47,15 @@ for w in W:
     words.append({"t": txt.rstrip(".,;:").upper(), "s": round(s, 3), "e": round(e, 3),
                   "key": norm(txt) in KEYS, "end": txt[-1] in ".,;:?!"})
 
+MAXW = int(os.environ.get("MAXW", "3"))  # words per caption block (default 3; use 4-5 for longer blocks)
 groups, g = [], []
 for w in words:
     g.append(w)
-    if len(g) >= 3 or w["end"] or (len(g) == 2 and sum(len(x["t"]) for x in g) > 11):
+    if MAXW > 3:
+        done = len(g) >= MAXW or w["end"] or sum(len(x["t"]) + 1 for x in g) > 24
+    else:
+        done = len(g) >= 3 or w["end"] or (len(g) == 2 and sum(len(x["t"]) for x in g) > 11)
+    if done:
         groups.append(g); g = []
 if g: groups.append(g)
 caps = [{"words": x, "from": x[0]["s"], "to": x[-1]["e"]} for x in groups]
