@@ -37,6 +37,7 @@ import { Reel36, REEL36_DURATION, REEL36_FPS } from "./Reel36";
 import { Intento, INTENTO_DURATION, INTENTO_FPS } from "./cine/Intento";
 import { Reel37, REEL37_DURATION, REEL37_FPS } from "./Reel37";
 import { Despierta, DESPIERTA_DURATION, DESPIERTA_FPS } from "./cine/Despierta";
+import { Reel38, REEL38_DURATION, REEL38_FPS } from "./Reel38";
 import { Repaso, REPASO_DURATION, REPASO_FPS } from "./cine/Repaso";
 import { Pensar, PENSAR_DURATION, PENSAR_FPS } from "./cine/Pensar";
 import { FilePense, FILEPENSE_DURATION, FILEPENSE_FPS } from "./cine/FilePense";
@@ -419,6 +420,14 @@ export const RemotionRoot: React.FC = () => {
         component={Despierta}
         durationInFrames={DESPIERTA_DURATION}
         fps={DESPIERTA_FPS}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="Reel38"
+        component={Reel38}
+        durationInFrames={REEL38_DURATION}
+        fps={REEL38_FPS}
         width={1080}
         height={1920}
       />
