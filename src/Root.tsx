@@ -49,6 +49,7 @@ import { Reel45, REEL45_DURATION, REEL45_FPS } from "./Reel45";
 import { Reel46, REEL46_DURATION, REEL46_FPS } from "./Reel46";
 import { Orado, ORADO_DURATION, ORADO_FPS } from "./cine/Orado";
 import { Reel47, REEL47_DURATION, REEL47_FPS } from "./Reel47";
+import { Reel48, REEL48_DURATION, REEL48_FPS } from "./Reel48";
 import { Repaso, REPASO_DURATION, REPASO_FPS } from "./cine/Repaso";
 import { Pensar, PENSAR_DURATION, PENSAR_FPS } from "./cine/Pensar";
 import { FilePense, FILEPENSE_DURATION, FILEPENSE_FPS } from "./cine/FilePense";
@@ -527,6 +528,14 @@ export const RemotionRoot: React.FC = () => {
         component={Reel47}
         durationInFrames={REEL47_DURATION}
         fps={REEL47_FPS}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="Reel48"
+        component={Reel48}
+        durationInFrames={REEL48_DURATION}
+        fps={REEL48_FPS}
         width={1080}
         height={1920}
       />
