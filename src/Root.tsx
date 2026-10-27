@@ -52,6 +52,7 @@ import { Reel47, REEL47_DURATION, REEL47_FPS } from "./Reel47";
 import { Reel48, REEL48_DURATION, REEL48_FPS } from "./Reel48";
 import { Reel49, REEL49_DURATION, REEL49_FPS } from "./Reel49";
 import { Cruzar, CRUZAR_DURATION, CRUZAR_FPS } from "./cine/Cruzar";
+import { Reel50, REEL50_DURATION, REEL50_FPS } from "./Reel50";
 import { Repaso, REPASO_DURATION, REPASO_FPS } from "./cine/Repaso";
 import { Pensar, PENSAR_DURATION, PENSAR_FPS } from "./cine/Pensar";
 import { FilePense, FILEPENSE_DURATION, FILEPENSE_FPS } from "./cine/FilePense";
@@ -554,6 +555,14 @@ export const RemotionRoot: React.FC = () => {
         component={Cruzar}
         durationInFrames={CRUZAR_DURATION}
         fps={CRUZAR_FPS}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="Reel50"
+        component={Reel50}
+        durationInFrames={REEL50_DURATION}
+        fps={REEL50_FPS}
         width={1080}
         height={1920}
       />
