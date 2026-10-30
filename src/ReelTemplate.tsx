@@ -80,6 +80,9 @@ export const Captions: React.FC<{ data: ReelData }> = ({ data }) => {
   const t = frame / fps;
   const cap = CAPTIONS.find((c) => t >= c.from && t < c.to);
   if (!cap) return null;
+  // shrink the block when a single word is too long to fit the 980 px safe width
+  const longest = Math.max(...cap.words.map((w) => w.t.length));
+  const size = Math.min(112, Math.floor(960 / (longest * 0.7)));
   return (
     <AbsoluteFill
       style={{ justifyContent: "flex-end", alignItems: "center", paddingBottom: 430 }}
@@ -94,7 +97,7 @@ export const Captions: React.FC<{ data: ReelData }> = ({ data }) => {
           textAlign: "center",
           fontFamily: "Inter, 'Arial Black', Arial, sans-serif",
           fontWeight: 900,
-          fontSize: 112,
+          fontSize: size,
           lineHeight: 1.08,
           letterSpacing: "-0.02em",
           WebkitTextStroke: "15px #000",
