@@ -72,6 +72,7 @@ import { Finde, FINDE_DURATION, FINDE_FPS } from "./cine/Finde";
 import { Reel63, REEL63_DURATION, REEL63_FPS } from "./Reel63";
 import { Reel64, REEL64_DURATION, REEL64_FPS } from "./Reel64";
 import { Inimes, INIMES_DURATION, INIMES_FPS } from "./cine/Inimes";
+import { Reel65, REEL65_DURATION, REEL65_FPS } from "./Reel65";
 import { Repaso, REPASO_DURATION, REPASO_FPS } from "./cine/Repaso";
 import { Pensar, PENSAR_DURATION, PENSAR_FPS } from "./cine/Pensar";
 import { FilePense, FILEPENSE_DURATION, FILEPENSE_FPS } from "./cine/FilePense";
@@ -734,6 +735,14 @@ export const RemotionRoot: React.FC = () => {
         component={Inimes}
         durationInFrames={INIMES_DURATION}
         fps={INIMES_FPS}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="Reel65"
+        component={Reel65}
+        durationInFrames={REEL65_DURATION}
+        fps={REEL65_FPS}
         width={1080}
         height={1920}
       />
