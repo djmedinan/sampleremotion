@@ -88,6 +88,7 @@ import { Reel71, REEL71_DURATION, REEL71_FPS } from "./Reel71";
 import { Reel72, REEL72_DURATION, REEL72_FPS } from "./Reel72";
 import { Reel73, REEL73_DURATION, REEL73_FPS } from "./Reel73";
 import { Claro, CLARO_DURATION, CLARO_FPS } from "./cine/Claro";
+import { Valiosa, VALIOSA_DURATION, VALIOSA_FPS } from "./cine/Valiosa";
 import { Repaso, REPASO_DURATION, REPASO_FPS } from "./cine/Repaso";
 import { Pensar, PENSAR_DURATION, PENSAR_FPS } from "./cine/Pensar";
 import { FilePense, FILEPENSE_DURATION, FILEPENSE_FPS } from "./cine/FilePense";
@@ -798,6 +799,14 @@ export const RemotionRoot: React.FC = () => {
         component={Reel69}
         durationInFrames={REEL69_DURATION}
         fps={REEL69_FPS}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="Valiosa"
+        component={Valiosa}
+        durationInFrames={VALIOSA_DURATION}
+        fps={VALIOSA_FPS}
         width={1080}
         height={1920}
       />
