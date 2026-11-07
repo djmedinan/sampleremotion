@@ -79,6 +79,7 @@ import { Reel67, REEL67_DURATION, REEL67_FPS } from "./Reel67";
 import { Reel68, REEL68_DURATION, REEL68_FPS } from "./Reel68";
 import { Reel69, REEL69_DURATION, REEL69_FPS } from "./Reel69";
 import { Neces, NECES_DURATION, NECES_FPS } from "./cine/Neces";
+import { Reel88, REEL88_DURATION, REEL88_FPS } from "./Reel88";
 import { Reel87, REEL87_DURATION, REEL87_FPS } from "./Reel87";
 import { Reel86, REEL86_DURATION, REEL86_FPS } from "./Reel86";
 import { Reel85, REEL85_DURATION, REEL85_FPS } from "./Reel85";
@@ -860,6 +861,14 @@ export const RemotionRoot: React.FC = () => {
         component={Neces}
         durationInFrames={NECES_DURATION}
         fps={NECES_FPS}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="Reel88"
+        component={Reel88}
+        durationInFrames={REEL88_DURATION}
+        fps={REEL88_FPS}
         width={1080}
         height={1920}
       />
