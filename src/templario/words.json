@@ -1,0 +1,296 @@
+[
+ {
+  "clip": "A",
+  "word": "Si",
+  "start": 0.12,
+  "end": 0.271
+ },
+ {
+  "clip": "A",
+  "word": "no",
+  "start": 0.294,
+  "end": 0.387
+ },
+ {
+  "clip": "A",
+  "word": "sabes",
+  "start": 0.422,
+  "end": 0.712
+ },
+ {
+  "clip": "A",
+  "word": "cuál",
+  "start": 0.735,
+  "end": 0.921
+ },
+ {
+  "clip": "A",
+  "word": "vino",
+  "start": 0.956,
+  "end": 1.339
+ },
+ {
+  "clip": "A",
+  "word": "elegir,",
+  "start": 1.536,
+  "end": 1.838
+ },
+ {
+  "clip": "A",
+  "word": "parte",
+  "start": 1.92,
+  "end": 2.152
+ },
+ {
+  "clip": "A",
+  "word": "por",
+  "start": 2.187,
+  "end": 2.256
+ },
+ {
+  "clip": "A",
+  "word": "este",
+  "start": 2.291,
+  "end": 2.454
+ },
+ {
+  "clip": "A",
+  "word": "pack",
+  "start": 2.5,
+  "end": 2.755
+ },
+ {
+  "clip": "A",
+  "word": "y",
+  "start": 2.825,
+  "end": 2.86
+ },
+ {
+  "clip": "A",
+  "word": "problema",
+  "start": 2.895,
+  "end": 3.22
+ },
+ {
+  "clip": "A",
+  "word": "resuelto.",
+  "start": 3.255,
+  "end": 3.766
+ },
+ {
+  "clip": "B",
+  "word": "El",
+  "start": 4.08,
+  "end": 4.241
+ },
+ {
+  "clip": "B",
+  "word": "Pack",
+  "start": 4.287,
+  "end": 4.482
+ },
+ {
+  "clip": "B",
+  "word": "Legado",
+  "start": 4.724,
+  "end": 5.023
+ },
+ {
+  "clip": "B",
+  "word": "Templario",
+  "start": 5.045,
+  "end": 5.494
+ },
+ {
+  "clip": "B",
+  "word": "reúne",
+  "start": 5.54,
+  "end": 5.793
+ },
+ {
+  "clip": "B",
+  "word": "6",
+  "start": 5.839,
+  "end": 6.057
+ },
+ {
+  "clip": "B",
+  "word": "botellas",
+  "start": 6.091,
+  "end": 6.471
+ },
+ {
+  "clip": "B",
+  "word": "de",
+  "start": 6.505,
+  "end": 6.551
+ },
+ {
+  "clip": "B",
+  "word": "La",
+  "start": 6.574,
+  "end": 6.643
+ },
+ {
+  "clip": "B",
+  "word": "Orden",
+  "start": 6.678,
+  "end": 6.862
+ },
+ {
+  "clip": "B",
+  "word": "del",
+  "start": 6.885,
+  "end": 6.999
+ },
+ {
+  "clip": "B",
+  "word": "Temple",
+  "start": 7.034,
+  "end": 7.287
+ },
+ {
+  "clip": "B",
+  "word": "para",
+  "start": 7.321,
+  "end": 7.471
+ },
+ {
+  "clip": "B",
+  "word": "que",
+  "start": 7.505,
+  "end": 7.586
+ },
+ {
+  "clip": "B",
+  "word": "pruebes",
+  "start": 7.62,
+  "end": 7.919
+ },
+ {
+  "clip": "B",
+  "word": "distintos",
+  "start": 7.965,
+  "end": 8.425
+ },
+ {
+  "clip": "B",
+  "word": "estilos",
+  "start": 8.459,
+  "end": 8.781
+ },
+ {
+  "clip": "B",
+  "word": "sin",
+  "start": 8.816,
+  "end": 8.907
+ },
+ {
+  "clip": "B",
+  "word": "comprar",
+  "start": 8.942,
+  "end": 9.287
+ },
+ {
+  "clip": "B",
+  "word": "a",
+  "start": 9.321,
+  "end": 9.344
+ },
+ {
+  "clip": "B",
+  "word": "ciegas.",
+  "start": 9.402,
+  "end": 9.85
+ },
+ {
+  "clip": "C1",
+  "word": "Es",
+  "start": 10.12,
+  "end": 10.298
+ },
+ {
+  "clip": "C1",
+  "word": "la",
+  "start": 10.331,
+  "end": 10.386
+ },
+ {
+  "clip": "C1",
+  "word": "forma",
+  "start": 10.42,
+  "end": 10.642
+ },
+ {
+  "clip": "C1",
+  "word": "más",
+  "start": 10.675,
+  "end": 10.83
+ },
+ {
+  "clip": "C1",
+  "word": "simple",
+  "start": 10.875,
+  "end": 11.108
+ },
+ {
+  "clip": "C1",
+  "word": "de",
+  "start": 11.13,
+  "end": 11.174
+ },
+ {
+  "clip": "C1",
+  "word": "descubrir",
+  "start": 11.196,
+  "end": 11.562
+ },
+ {
+  "clip": "C1",
+  "word": "cuál",
+  "start": 11.607,
+  "end": 11.818
+ },
+ {
+  "clip": "C1",
+  "word": "es",
+  "start": 11.884,
+  "end": 11.973
+ },
+ {
+  "clip": "C1",
+  "word": "tu",
+  "start": 11.995,
+  "end": 12.051
+ },
+ {
+  "clip": "C1",
+  "word": "favorito.",
+  "start": 12.073,
+  "end": 12.55
+ },
+ {
+  "clip": "C2",
+  "word": "Está",
+  "start": 12.78,
+  "end": 13.047
+ },
+ {
+  "clip": "C2",
+  "word": "disponible",
+  "start": 13.08,
+  "end": 13.704
+ },
+ {
+  "clip": "C2",
+  "word": "en",
+  "start": 13.737,
+  "end": 13.782
+ },
+ {
+  "clip": "C2",
+  "word": "eltemple.cl.",
+  "start": 13.815,
+  "end": 14.85
+ }
+]
