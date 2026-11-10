@@ -110,6 +110,7 @@ import { Valiosa, VALIOSA_DURATION, VALIOSA_FPS } from "./cine/Valiosa";
 import { Fechi, FECHI_DURATION, FECHI_FPS } from "./cine/Fechi";
 import { Semana, SEMANA_DURATION, SEMANA_FPS } from "./cine/Semana";
 import { Amada, AMADA_DURATION, AMADA_FPS } from "./cine/Amada";
+import { Refugio, REFUGIO_DURATION, REFUGIO_FPS } from "./cine/Refugio";
 import { Repaso, REPASO_DURATION, REPASO_FPS } from "./cine/Repaso";
 import { Pensar, PENSAR_DURATION, PENSAR_FPS } from "./cine/Pensar";
 import { FilePense, FILEPENSE_DURATION, FILEPENSE_FPS } from "./cine/FilePense";
@@ -828,6 +829,14 @@ export const RemotionRoot: React.FC = () => {
         component={Amada}
         durationInFrames={AMADA_DURATION}
         fps={AMADA_FPS}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="Refugio"
+        component={Refugio}
+        durationInFrames={REFUGIO_DURATION}
+        fps={REFUGIO_FPS}
         width={1080}
         height={1920}
       />
