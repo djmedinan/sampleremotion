@@ -30,7 +30,7 @@ const SHOTS: Shot[] = [
   // 5.65–7.95 s · foto ampliada del pack: se ven las 6 botellas (ventana ancha + relleno oscuro)
   { src: "templario/video/web_b.mp4", from: 52, dur: 69, trim: 4, a: { W: 900, cx: 950 }, b: { W: 760, cx: 950 }, y0: 150 },
   // 7.95–10.25 s · página de producto: de la foto al nombre y al precio ($93.400)
-  { src: "templario/video/web_c.mp4", from: 121, dur: 75, pan: 56, trim: 12, a: { W: 529, cx: 395 }, b: { W: 480, cx: 1228, cy: 520 }, ease: easeInOut },
+  { src: "templario/video/web_c.mp4", from: 121, dur: 75, pan: 44, trim: 12, a: { W: 529, cx: 395 }, b: { W: 480, cx: 1228, cy: 520 }, ease: easeInOut },
 ];
 
 const Shot: React.FC<{ s: Shot }> = ({ s }) => {
@@ -107,7 +107,7 @@ export const WebsiteScene: React.FC = () => {
         <AbsoluteFill
           style={{
             background:
-              "linear-gradient(180deg, rgba(8,4,6,.55) 0%, rgba(8,4,6,0) 16%, rgba(8,4,6,0) 55%, rgba(8,4,6,.82) 82%, rgba(8,4,6,.9) 100%)",
+              "linear-gradient(180deg, rgba(8,4,6,.55) 0%, rgba(8,4,6,0) 16%, rgba(8,4,6,0) 68%, rgba(8,4,6,.5) 86%, rgba(8,4,6,.85) 100%)",
           }}
         />
       </AbsoluteFill>

@@ -12,7 +12,7 @@ import { C, FONT, FPS, easeIn, ramp } from "./theme";
  */
 type Seg = { t: string; gold?: boolean; size?: number };
 type Line = { segs: Seg[]; w?: number };
-type Chunk = { a: number; b: number; kind: "normal" | "concept" | "hero"; lines: Line[] };
+type Chunk = { a: number; b: number; kind: "normal" | "concept" | "hero"; lines: Line[]; y?: number };
 
 const L = (...segs: Seg[]): Line => ({ segs });
 const g = (t: string, size?: number): Seg => ({ t, gold: true, size });
@@ -28,7 +28,7 @@ const CHUNKS: Chunk[] = [
   { a: 20, b: 24, kind: "normal", lines: [L(n("de La Orden del Temple"))] },
   { a: 25, b: 27, kind: "normal", lines: [L(n("para que pruebes"))] },
   { a: 28, b: 29, kind: "concept", lines: [L(n("DISTINTOS", 124)), L(g("ESTILOS", 124))] },
-  { a: 30, b: 33, kind: "concept", lines: [L(n("SIN COMPRAR", 124)), L(g("A CIEGAS", 124))] },
+  { a: 30, b: 33, kind: "concept", y: 450, lines: [L(n("SIN COMPRAR", 124)), L(g("A CIEGAS", 124))] },
   // BLOQUE 3
   { a: 34, b: 39, kind: "normal", lines: [L(n("Es la forma más simple de"))] },
   {
@@ -75,7 +75,7 @@ const ChunkView: React.FC<{ c: Chunk; startF: number; endF: number }> = ({ c, st
   const out = ramp(frame, endF - 5, endF, 1, 0, easeIn);
   const scale = concept ? 1.28 - 0.28 * pop : 0.9 + 0.1 * pop;
   const ty = concept ? 0 : (1 - pop) * 26;
-  const yCenter = c.kind === "hero" ? 1452 : concept ? 1390 : 1440;
+  const yCenter = c.y ?? (c.kind === "hero" ? 1452 : concept ? 1390 : 1440);
   return (
     <div
       style={{

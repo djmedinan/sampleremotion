@@ -87,7 +87,7 @@ venv_ = lp(np.abs(v), 6, 1); venv_ = np.clip(venv_ / (venv_.max() * 0.45), 0, 1)
 duck = 1 - 0.62 * venv_
 music *= duck
 # nivel base y fundido final
-music *= 0.34
+music *= 0.6
 music *= np.minimum(1, (DUR - t) / 0.5) * np.minimum(1, t / 0.15)
 
 # ---------------------------------------------------------------- efectos
