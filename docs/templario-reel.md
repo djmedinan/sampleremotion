@@ -21,3 +21,8 @@ npx remotion render TemplarioReel out/templario_reel.mp4 --codec=h264 --crf=16
 - `scripts/templario_voice.py <modelo es_MX-claude-high.onnx>`: locución Piper + tiempos por palabra → `public/templario/audio/voice.wav` y `src/templario/words.json`.
 - `scripts/templario_audio.py`: música instrumental y SFX sintetizados (whoosh, impacts, swell al hero), con sidechain bajo la voz.
 - La voz es TTS provisional. Para usar la tuya: reemplaza `voice.wav` y ajusta los tiempos en `words.json` (los subtítulos leen de ahí).
+
+## Reel "Todo lo bueno empieza con V" (`VinoV`)
+Solo textos animados sobre el metraje original (816×1104, 24 fps, 10,04 s, audio intacto). Raleway 300, «Vino» y «Ve al Temple» en 500.
+`npx remotion render VinoV exports/vino_v_reel.mp4 --crf=12`. Código: `src/vinoV/VinoVReel.tsx`.
+El ☝️ es la imagen Twemoji `261d.svg` (© Twitter/Twemoji, CC-BY 4.0), porque Chrome no renderiza fuentes de emoji SVG.
