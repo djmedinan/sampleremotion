@@ -26,3 +26,6 @@ npx remotion render TemplarioReel out/templario_reel.mp4 --codec=h264 --crf=16
 Solo textos animados sobre el metraje original (816×1104, 24 fps, 10,04 s, audio intacto). Raleway 300, «Vino» y «Ve al Temple» en 500.
 `npx remotion render VinoV exports/vino_v_reel.mp4 --crf=12`. Código: `src/vinoV/VinoVReel.tsx`.
 El ☝️ es la imagen Twemoji `261d.svg` (© Twitter/Twemoji, CC-BY 4.0), porque Chrome no renderiza fuentes de emoji SVG.
+
+### v2 (`VinoV2`)
+Mismo metraje; texto blanco #FFFFFF centrado al 43 % de la altura, ancho máx. 85 %, interlineado 1,2, sombra `0 2px 8px rgba(0,0,0,.85), 0 0 20px rgba(0,0,0,.45)` y degradado radial negro muy sutil. Emoji 👇 = Twemoji `1f447.svg` (CC-BY 4.0). Salida: `exports/vino_v2_reel.mp4`.
