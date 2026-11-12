@@ -29,3 +29,6 @@ El ☝️ es la imagen Twemoji `261d.svg` (© Twitter/Twemoji, CC-BY 4.0), porqu
 
 ### v2 (`VinoV2`)
 Mismo metraje; texto blanco #FFFFFF centrado al 43 % de la altura, ancho máx. 85 %, interlineado 1,2, sombra `0 2px 8px rgba(0,0,0,.85), 0 0 20px rgba(0,0,0,.45)` y degradado radial negro muy sutil. Emoji 👇 = Twemoji `1f447.svg` (CC-BY 4.0). Salida: `exports/vino_v2_reel.mp4`.
+
+## Subtítulos `Vino30Lucas`
+Video 848×1072, 24 fps, audio intacto. Transcripción con Whisper (`small`) → `src/subs/vino30lucas.words.json` (tiempos por palabra; revisar el texto si se cambia el video). Bloques de ≤3 palabras, palabra activa en dorado, desplazados a la izquierda para no tapar la etiqueta de la botella. `npx remotion render Vino30Lucas exports/vino30lucas_subs.mp4 --crf=12`.

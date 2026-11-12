@@ -82,6 +82,7 @@ import { Neces, NECES_DURATION, NECES_FPS } from "./cine/Neces";
 import { TemploReel, TEMPLARIO_DURATION } from "./templario/TemploReel";
 import { VinoVReel, VINOV_DURATION, VINOV_FPS, VINOV_W, VINOV_H } from "./vinoV/VinoVReel";
 import { VinoV2Reel } from "./vinoV/VinoV2Reel";
+import { SubsReel, SUBS_DURATION, SUBS_FPS, SUBS_W, SUBS_H } from "./subs/SubsReel";
 import { Reel96, REEL96_DURATION, REEL96_FPS } from "./Reel96";
 import { Reel95, REEL95_DURATION, REEL95_FPS } from "./Reel95";
 import { Reel94, REEL94_DURATION, REEL94_FPS } from "./Reel94";
@@ -907,6 +908,14 @@ export const RemotionRoot: React.FC = () => {
         fps={VINOV_FPS}
         width={VINOV_W}
         height={VINOV_H}
+      />
+      <Composition
+        id="Vino30Lucas"
+        component={SubsReel}
+        durationInFrames={SUBS_DURATION}
+        fps={SUBS_FPS}
+        width={SUBS_W}
+        height={SUBS_H}
       />
       <Composition
         id="Reel96"
