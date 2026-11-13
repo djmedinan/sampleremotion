@@ -22,6 +22,7 @@ export type ReelProps = {
   zoomOrigin: string; // transform-origin, on the face (upper third, clear of the app UI)
   toggles: { at: number; scale: number }[]; // 115% / 100% schedule, snapped to jump cuts
   headline?: HeadlineProps; // opening headline card (first seconds only)
+  subs?: boolean; // word-by-word subtitles (default on)
 };
 export type HeadlineProps = {
   text: string; // full headline, emoji allowed, rendered uppercase
@@ -210,7 +211,7 @@ const CallToAction: React.FC = () => {
   );
 };
 
-export const ReelTemplate: React.FC<{ data: ReelData } & ReelProps> = ({ data, src, focusX, zoomOrigin, toggles, arrow = true, headline }) => {
+export const ReelTemplate: React.FC<{ data: ReelData } & ReelProps> = ({ data, src, focusX, zoomOrigin, toggles, arrow = true, headline, subs = true }) => {
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
   const t = frame / fps;
@@ -226,7 +227,7 @@ export const ReelTemplate: React.FC<{ data: ReelData } & ReelProps> = ({ data, s
       <AbsoluteFill style={{ transform: `scale(${scale})`, transformOrigin: zoomOrigin }}>
         <Footage data={data} src={src} focusX={focusX} />
       </AbsoluteFill>
-      <Captions data={data} />
+      {subs && <Captions data={data} />}
       {headline && <Headline {...headline} />}
       {arrow && <CallToAction />}
     </AbsoluteFill>
