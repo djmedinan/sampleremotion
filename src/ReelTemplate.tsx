@@ -21,6 +21,14 @@ export type ReelProps = {
   focusX: string; // objectPosition x that centres the speaker's face in the 1080px crop
   zoomOrigin: string; // transform-origin, on the face (upper third, clear of the app UI)
   toggles: { at: number; scale: number }[]; // 115% / 100% schedule, snapped to jump cuts
+  headline?: HeadlineProps; // opening headline card (first seconds only)
+};
+export type HeadlineProps = {
+  text: string; // full headline, emoji allowed, rendered uppercase
+  hi: string; // substring (inside text) highlighted in yellow
+  from?: number; // seconds, default 0.2
+  to?: number; // seconds, default 3.8
+  top?: number; // px from the top of the 1920 frame
 };
 
 const YELLOW = "#F6FF00";
@@ -130,6 +138,33 @@ export const Captions: React.FC<{ data: ReelData }> = ({ data }) => {
   );
 };
 
+// Opening headline: white bold text on rounded black boxes (one per line), a key phrase in yellow.
+// Sits between the face and the subtitle band and leaves the screen after a few seconds.
+const Headline: React.FC<HeadlineProps> = ({ text, hi, from = 0.2, to = 3.8, top = 945 }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const t = frame / fps;
+  if (t < from || t > to) return null;
+  const inn = interpolate(t, [from, from + 0.25], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) });
+  const out = interpolate(t, [to - 0.3, to], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const up = text.toUpperCase();
+  const h = hi.toUpperCase();
+  const at = up.indexOf(h);
+  const parts = at < 0 ? [up] : [up.slice(0, at), up.slice(at, at + h.length), up.slice(at + h.length)].filter((x) => x.length > 0);
+  const hiIdx = at < 0 ? -1 : up.slice(0, at).length > 0 ? 1 : 0;
+  return (
+    <AbsoluteFill style={{ alignItems: "center", justifyContent: "flex-start", paddingTop: top, opacity: Math.min(inn, out), transform: `translateY(${(1 - inn) * 24}px)` }}>
+      <div style={{ maxWidth: 900, textAlign: "center", fontFamily: "Inter, 'Arial Black', Arial, sans-serif", fontWeight: 800, fontSize: 56, lineHeight: 1.42, letterSpacing: "-0.01em", color: "#fff" }}>
+        {parts.map((p, i) => (
+          <span key={i} style={{ background: "#000", padding: "8px 22px", borderRadius: 26, WebkitBoxDecorationBreak: "clone", boxDecorationBreak: "clone", color: i === hiIdx ? YELLOW : "#fff" }}>
+            {p}
+          </span>
+        ))}
+      </div>
+    </AbsoluteFill>
+  );
+};
+
 // High-contrast pulse + bouncing arrow aimed at the like/share rail on the right of the app UI.
 const CallToAction: React.FC = () => {
   const frame = useCurrentFrame();
@@ -175,7 +210,7 @@ const CallToAction: React.FC = () => {
   );
 };
 
-export const ReelTemplate: React.FC<{ data: ReelData } & ReelProps> = ({ data, src, focusX, zoomOrigin, toggles, arrow = true }) => {
+export const ReelTemplate: React.FC<{ data: ReelData } & ReelProps> = ({ data, src, focusX, zoomOrigin, toggles, arrow = true, headline }) => {
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
   const t = frame / fps;
@@ -192,6 +227,7 @@ export const ReelTemplate: React.FC<{ data: ReelData } & ReelProps> = ({ data, s
         <Footage data={data} src={src} focusX={focusX} />
       </AbsoluteFill>
       <Captions data={data} />
+      {headline && <Headline {...headline} />}
       {arrow && <CallToAction />}
     </AbsoluteFill>
   );
