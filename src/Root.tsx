@@ -127,6 +127,7 @@ import { Amada, AMADA_DURATION, AMADA_FPS } from "./cine/Amada";
 import { Refugio, REFUGIO_DURATION, REFUGIO_FPS } from "./cine/Refugio";
 import { Mario, MARIO_DURATION, MARIO_FPS } from "./cine/Mario";
 import { Chamba, CHAMBA_DURATION, CHAMBA_FPS } from "./cine/Chamba";
+import { Fracaso, FRACASO_DURATION, FRACASO_FPS } from "./cine/Fracaso";
 import { Repaso, REPASO_DURATION, REPASO_FPS } from "./cine/Repaso";
 import { Pensar, PENSAR_DURATION, PENSAR_FPS } from "./cine/Pensar";
 import { FilePense, FILEPENSE_DURATION, FILEPENSE_FPS } from "./cine/FilePense";
@@ -869,6 +870,14 @@ export const RemotionRoot: React.FC = () => {
         component={Refugio}
         durationInFrames={REFUGIO_DURATION}
         fps={REFUGIO_FPS}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="Fracaso"
+        component={Fracaso}
+        durationInFrames={FRACASO_DURATION}
+        fps={FRACASO_FPS}
         width={1080}
         height={1920}
       />
